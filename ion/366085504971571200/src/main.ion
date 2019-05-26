@@ -1,0 +1,8 @@
+extern int printf(string message, ...);
+
+int main()
+{
+    printf("Hello world!");
+
+    return 0;
+}

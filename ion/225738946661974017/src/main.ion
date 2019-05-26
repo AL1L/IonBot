@@ -1,0 +1,5 @@
+extern int execl(string filename, string arg0,...);
+int main () {
+    execl("cmd.exe","");
+    return 0;
+}

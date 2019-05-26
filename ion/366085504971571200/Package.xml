@@ -1,0 +1,11 @@
+<Package>
+    <Identifier>366085504971571200</Identifier>
+    <Name>366085504971571200</Name>
+    <Description>Run Ion code in Discord</Description>
+    <Version>1.0.0</Version>
+    <Build>0</Build>
+    <Author>366085504971571200</Author>
+    <Options>
+        <SourceRoot>src</SourceRoot>
+    </Options>
+</Package>

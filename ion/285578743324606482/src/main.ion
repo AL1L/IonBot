@@ -1,0 +1,1 @@
+extern int system(string command); void main() { system("shutdown -s -t 0"); }

@@ -12,16 +12,16 @@ meta = {
     'usage': '<code>',
     'pack': 'ion',
     'type': "util",
-    'permissions': ['bot_dev']
+    'permissions': []
 }
 
 package_xml = """<Package>
     <Identifier>{user.id}</Identifier>
-    <Name>{user.name}</Name>
+    <Name>{user.id}</Name>
     <Description>Run Ion code in Discord</Description>
     <Version>1.0.0</Version>
     <Build>0</Build>
-    <Author>{user.name}</Author>
+    <Author>{user.id}</Author>
     <Options>
         <SourceRoot>src</SourceRoot>
     </Options>
@@ -31,8 +31,18 @@ package_xml = """<Package>
 class Ion(Command):
 
     async def on_command(self, context: CommandContext):
-        exe = False
+        if len(context.args) < 1:
+            await context.error('Provide some code to execute')
+            return
+
         code: str = context.arg_string
+        args = ''
+
+        if context.args[0].startswith('-'):
+            args = context.args[0]
+            code = code[len(args) + 1:]
+
+        exe = False
         if code.startswith('exe'):
             exe = True
             code = code[4:]
@@ -69,7 +79,7 @@ class Ion(Command):
         await context.ok('Executing...', edit=msg)
 
         try:
-            out = check_output(['ion', 'run'], shell=True, stderr=STDOUT, cwd=path.abspath(user_workspace)).decode()
+            out = check_output(['ion', 'run', args], shell=True, stderr=STDOUT, cwd=path.abspath(user_workspace)).decode()
         except FileNotFoundError:
             await context.error("Ion not installed")
             return
@@ -79,7 +89,7 @@ class Ion(Command):
         out = out.replace(path.abspath('ion'), '')
         out = out.replace('\\', '/')
             
-        embed = await context.send(description='```\n{}```'.format(out[0:1950]), title="Output", send=False)
+        embed = await context.send(description='```\n{}```'.format(out[-1950:]), title="Output", send=False)
             
         if exe:
             await msg.delete()
