@@ -1,0 +1,29 @@
+{
+    "apis": {
+      "discord": {
+        "token": ""
+      }
+    },
+    "admins": [
+      366085504971571200,
+      285578743324606482
+    ],
+    "features": {
+      "EmbedUI": {
+        "color": 7500799,
+        "footer_name": "Ion",
+        "footer_icon": "https://avatars0.githubusercontent.com/u/50020559?s=200&v=4"
+      },
+      "Commands": {
+        "prefix": ".",
+        "commands": {
+          "default": {}
+        }
+      },
+      "Database": {
+        "type": "SQLite",
+        "database": "database.db"
+      }
+    }
+  }
+  

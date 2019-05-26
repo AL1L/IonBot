@@ -1,0 +1,8 @@
+{
+  "class": "ion.Ion",
+  "name": "Ion",
+  "description": "Run Ion code",
+  "depends": [
+    "Commands"
+  ]
+}

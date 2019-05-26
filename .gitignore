@@ -1,0 +1,9 @@
+node_modules/
+.vscode/
+*.log
+config.json
+__pycache__/
+bot.log
+data/
+avatars/
+attachments/

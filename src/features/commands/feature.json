@@ -1,0 +1,11 @@
+{
+  "class": "command_manager.CommandManager",
+  "name": "Commands",
+  "description": "Create commands for members to interact with bot",
+  "depends": [
+    "EmbedUI"
+  ],
+  "softdepends": [
+    "SnowflakeSettings"
+  ]
+}

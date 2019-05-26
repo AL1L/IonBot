@@ -1,0 +1,8 @@
+{
+  "class": "settings.SnowflakeSettings",
+  "name": "SnowflakeSettings",
+  "description": "Have per snowflake settings. This can be a guild, user, channel, or even a message.",
+  "depends": [
+    "Database"
+  ]
+}
